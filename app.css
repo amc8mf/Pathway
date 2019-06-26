@@ -1,0 +1,43 @@
+.title {
+	color: black !important;
+	font-family: 'Amatic SC' !important;
+	font-size: 50px !important;
+	text-align: center;
+}
+
+.side_panel {
+	color : black !important;
+}
+
+.card {
+	/*color: aliceblue;*/
+}
+
+body {
+	background-color: aliceblue !important;
+}
+
+.gameboard {
+	/*height: 80px;*/
+
+}
+.container {
+	padding-top: 10px !important;
+}
+
+#playerTurn {
+	border-bottom: 1px solid
+}
+
+.score-text {
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+}
+
+.blue {
+	color: blue;
+}
+
+.green {
+	color: green;
+}

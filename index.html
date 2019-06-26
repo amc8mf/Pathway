@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PATHWAY</title>
+	<script src="app.js"></script>
+	<link rel="stylesheet" href="app.css">
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row ">
+			<div class="card shadow-lg mb-5 bg-white rounded col-md-12 gameboard">
+				<div><h1 class="title">Pathway</h1></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div style class="card shadow-lg p-3 mb-5 bg-white rounded ">
+				<div class="card-body ">
+					<div class="col-md-12" id="cr-stage"></div>
+				</div>
+			</div>
+			<div style="margin-left: 100px;" class="card shadow-lg p-3 mb-5 bg-white rounded col-md-4">
+				<div class="card-body side-panel">
+					<h2 class="side-panel" id="playerTurn">Player 1's turn</h2>
+					<div><h1 class="blue">Player 1 walls:<span id="player1">10</span></h1></div>
+					<br>
+					<div><h1 class="green">Player 2 walls:<span id="player2">10</span></h1></div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
