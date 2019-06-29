@@ -212,15 +212,12 @@ module.exports = function(clickedSquare, squareWidth, greenCircle, blueCircle) {
           if(greenCircle.turn) {
             this.player2Walls -= 1;
             $('#player2').text(this.player2Walls);
-            var color = 'green';
           } else {
             this.player1Walls -= 1;
             $('#player1').text(this.player1Walls);
-            var color = 'blue';
           }
           toggleTurn(greenCircle, blueCircle);
           // Return dimensions needed to render wall.
-          var wallColor = greenCircle.turn ? 'Green' : 'Blue';
           return {x: this.wallX, y: this.wallY, w: wallWidth, h: wallHeight, z: 8}
         } else {
           swal({title: 'Error', position : 'bottom-end', text : "The move you're trying to make is invalid", timer: 2000, type: 'error', toast: true, showConfirmButton: false});
