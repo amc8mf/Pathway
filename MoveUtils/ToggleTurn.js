@@ -1,5 +1,5 @@
-module.exports = (circle, otherCircle) => {
-  if (this.toggle == true ) {
+module.exports = (circle, otherCircle, toggle) => {
+  if (toggle == true ) {
   	// Make scoreboard show Player 2's turn.
     document.getElementById('playerTurn').innerText = "Player 2's turn";
   } else {
