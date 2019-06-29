@@ -6,12 +6,12 @@ module.exports = function(clickedSquare, squareWidth, greenCircle, blueCircle) {
   var wallWidth;
   var wallHeight;
   const letterList = ['Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
-
   var removeEdges = (wallName) => {
     // Store the current state of our graph so in case are wall does not pass validation, we can revert our updates in
     // the graph that occur throughout this function.
     this.placeHolderGraph = JSON.parse(JSON.stringify(this.graph.adjList));
     if (!this.wallArray.includes(wallName)) {
+      // Exclude this wall from being placed again.
       this.wallArray.push(wallName);
       var letterList = ['Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
       var wallColumn = wallName.charAt(0);
@@ -219,7 +219,6 @@ module.exports = function(clickedSquare, squareWidth, greenCircle, blueCircle) {
             var color = 'blue';
           }
           toggleTurn(greenCircle, blueCircle);
-
           // Return dimensions needed to render wall.
           var wallColor = greenCircle.turn ? 'Green' : 'Blue';
           return {x: this.wallX, y: this.wallY, w: wallWidth, h: wallHeight, z: 8}
@@ -227,16 +226,16 @@ module.exports = function(clickedSquare, squareWidth, greenCircle, blueCircle) {
           swal({title: 'Error', position : 'bottom-end', text : "The move you're trying to make is invalid", timer: 2000, type: 'error', toast: true, showConfirmButton: false});
           // Revert changes we made to graph throughout this function.
           this.graph.adjList = this.placeHolderGraph;
-          // I think I need to call this 4 times because I added for walls to this list when RemoveEdges called..
-          wallArray.pop();
+          // We have added 4 walls to exclude throughout this process, so revert those changes since wall was eventually invalidated.
+          this.wallArray.splice(-4);
           this.firstClick = true;
         }
       } else {
         swal({title: 'Error', position : 'bottom-end', text : "The move you're trying to make is invalid", timer: 2000, type: 'error', toast: true, showConfirmButton: false});
         // Revert changes we made to graph throughout this function.
         this.graph.adjList = this.placeHolderGraph;
-        // I think I need to call this 4 times because I added for walls to this list when RemoveEdges called..
-        wallArray.pop();
+        // We have added 4 walls to exclude throughout this process, so revert those changes since wall was eventually invalidated.
+        this.wallArray.splice(-4);
         this.firstClick = true;
       } 
     } else {
