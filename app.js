@@ -74,7 +74,7 @@ window.onload = () => {
           var nameVar = letterList[letterIndex] + number.toString()
           // This is a list of 'move' tiles that a player can move to for a given tile, it is modified as walls are placed.
           var movesVar = this.graph.adjList[nameVar];
-          Crafty.e('2D, Canvas, Color, Solid, Tile, Collision, Mouse, Touch').attr({
+          Crafty.e('2D, Canvas, Color, Solid, Tile, Collision, Mouse, Touch, Primary').attr({
             x: tileX,
             y: tileY,
             w: squareWidth,
@@ -165,6 +165,16 @@ window.onload = () => {
       position : 'E9',
       player: 1
     });
+    // Highlight possible moves at start of game.
+    var firstPosition = blueCircle.position;
+    var possibleMoves = this.graph.adjList[firstPosition];
+    Crafty("Primary").each(function() {
+      if (possibleMoves.includes(this.name)) {
+        this.color('yellow');
+      } else {
+        this.color('gray');
+      }
+    })
 
     Crafty.bind('KeyDown', (e) => {
       // Prevent scrolling of page when player attempts to move.
@@ -177,6 +187,9 @@ window.onload = () => {
       }
     });
 	});
+
+
+
   // Render game.
   Crafty.scene("game");
 }

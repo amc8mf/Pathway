@@ -10,16 +10,14 @@ module.exports =  function(e, circle, otherCircle) {
     if(this.graph.adjList[circle.position].includes(newPosition) && newPosition != otherCircle.position) {
       circle.x -= this.xStep;
       circle.position = newPosition;
-      toggleTurn(circle, otherCircle, this.toggle);
-      this.toggle = !this.toggle;
+      toggleTurn.apply(this, [circle, otherCircle]);
     } else if (newPosition == otherCircle.position) {
       var newJumpPosition = letterList[letterList.indexOf(circle.position[0]) - 2] + circle.position[1];
       if (this.graph.adjList[otherCircle.position].includes(newJumpPosition)) {
       // If you are jumping over player.
         circle.position = newJumpPosition;
         circle.x -= this.xStep * 2;
-        toggleTurn(circle, otherCircle, this.toggle);
-        this.toggle = !this.toggle;
+        toggleTurn.apply(this, [circle, otherCircle]);
       } else {
         swal({title: 'Error', position : 'bottom-end', text : "The move you're trying to make is invalid", timer: 2000, type: 'error', toast: true, showConfirmButton: false});
       }
@@ -33,15 +31,13 @@ module.exports =  function(e, circle, otherCircle) {
     if(this.graph.adjList[circle.position].includes(newPosition) && newPosition != otherCircle.position) {
       circle.x += this.xStep;
       circle.position = newPosition;
-      toggleTurn(circle, otherCircle, this.toggle);
-      this.toggle = !this.toggle;
+      toggleTurn.apply(this, [circle, otherCircle]);
     } else if (newPosition == otherCircle.position) {
       var newJumpPosition = letterList[letterList.indexOf(circle.position[0]) + 2] + circle.position[1];
       if (this.graph.adjList[otherCircle.position].includes(newJumpPosition)) {
         circle.position = newJumpPosition;
         circle.x += this.xStep * 2;
-        toggleTurn(circle, otherCircle, this.toggle);
-        this.toggle = !this.toggle;
+        toggleTurn.apply(this, [circle, otherCircle]);
       } else {
         swal({title: 'Error', position : 'bottom-end', text : "The move you're trying to make is invalid", timer: 2000, type: 'error', toast: true, showConfirmButton: false});
       }
@@ -55,8 +51,7 @@ module.exports =  function(e, circle, otherCircle) {
     if(this.graph.adjList[circle.position].includes(newPosition) && newPosition != otherCircle.position) {
       circle.y -= this.yStep;
       circle.position = newPosition;
-      toggleTurn(circle, otherCircle, this.toggle);
-      this.toggle = !this.toggle;
+      toggleTurn.apply(this, [circle, otherCircle]);
       if (newPosition[1] == 1 && circle.player == 1) {
         swal({title: 'Winner', text : "You've won the game! Congratulations", type : 'success'}).then(function(response) {
           if (response.value == true) location.reload();
@@ -67,8 +62,7 @@ module.exports =  function(e, circle, otherCircle) {
       if (this.graph.adjList[otherCircle.position].includes(newJumpPosition)) {
         circle.position = newJumpPosition;
         circle.y -= this.yStep * 2;
-        toggleTurn(circle, otherCircle, this.toggle);
-        this.toggle = !this.toggle;
+        toggleTurn.apply(this, [circle, otherCircle]);
       } else {
         swal({title: 'Error', position : 'bottom-end', text : "The move you're trying to make is invalid", timer: 2000, type: 'error', toast: true, showConfirmButton: false});
       }
@@ -87,15 +81,13 @@ module.exports =  function(e, circle, otherCircle) {
           if (response.value == true) location.reload();
         });
       }
-      toggleTurn(circle, otherCircle, this.toggle);
-      this.toggle = !this.toggle;
+      toggleTurn.apply(this, [circle, otherCircle]);
     } else if (newPosition == otherCircle.position) {
       var newJumpPosition = circle.position[0] + (parseInt(circle.position[1]) + 2);
       if (this.graph.adjList[otherCircle.position].includes(newJumpPosition)) {
         circle.position = newJumpPosition;
         circle.y += this.yStep * 2;
-        toggleTurn(circle, otherCircle, this.toggle);
-        this.toggle = !this.toggle;
+        toggleTurn.apply(this, [circle, otherCircle]);
       } else {
         swal({title: 'Error', position : 'bottom-end', text : "The move you're trying to make is invalid", timer: 2000, type: 'error', toast: true, showConfirmButton: false});
       }
