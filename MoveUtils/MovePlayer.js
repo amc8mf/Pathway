@@ -1,7 +1,7 @@
 var toggleTurn = require('./ToggleTurn');
 var swal = require('sweetalert2');
 
-// arrow function doesnt work here because of .apply()
+// No arrow function here, we are using apply instead because dealing with multiple contexts.
 module.exports =  function(e, circle, otherCircle) {
 
   var letterList = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
