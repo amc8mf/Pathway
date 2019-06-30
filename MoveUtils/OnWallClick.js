@@ -216,7 +216,16 @@ module.exports = function(clickedSquare, squareWidth, greenCircle, blueCircle) {
             this.player1Walls -= 1;
             $('#player1').text(this.player1Walls);
           }
-          toggleTurn.apply(this, [greenCircle, blueCircle]);
+          var circle;
+          var otherCircle;
+          if (this.toggle) {
+            circle = blueCircle;
+            otherCircle = greenCircle;
+          } else {
+            circle = greenCircle;
+            otherCircle = blueCircle;
+          }
+          toggleTurn.apply(this, [circle, otherCircle]);
           // Return dimensions needed to render wall.
           return {x: this.wallX, y: this.wallY, w: wallWidth, h: wallHeight, z: 8}
         } else {

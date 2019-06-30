@@ -33,8 +33,6 @@ window.onload = () => {
   // Give each player 10 walls to place.
   this.player1Walls = 10;
   this.player2Walls = 10;
-  // Variable for determing scoreboard text.
-  this.toggle = true;
 
 	Crafty.scene("game", () => {
     Crafty.c("Circle", {
@@ -88,6 +86,8 @@ window.onload = () => {
     }
 
     // These 'wall placement' tiles allow user to select wall placement.
+    // Variable for determing scoreboard text.
+    this.toggle = true;
     var self = this;
     var makeWallConnections = () => {
       letterIndex = 0;
