@@ -1,11 +1,31 @@
 var toggleTurn = require('./ToggleTurn');
 var swal = require('sweetalert2');
-
-module.exports =  function(e, circle, otherCircle) {
+module.exports =  function(circle, otherCircle, clickedPosition) {
 
   var letterList = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+  if(clickedPosition) {
+    var currentPosition = circle.position;
+    var clickedPosition = clickedPosition;
 
-  if (e.key == Crafty.keys.LEFT_ARROW) {
+    var currentPositionColumnIndex = letterList.indexOf(circle.position[0]);
+    var clickedPositionColumnIndex = letterList.indexOf(clickedPosition[0]);
+
+    var currentPositionRowNum = parseInt(circle.position[1]);
+    var clickedPositionRowNum = parseInt(clickedPosition[1]);
+    var direction;
+
+    if (currentPositionColumnIndex < clickedPositionColumnIndex) {
+      direction = 'right';
+    } else if (currentPositionColumnIndex > clickedPositionColumnIndex) {
+      direction = 'left';
+    } else if (currentPositionRowNum < clickedPositionRowNum) {
+      direction = 'down';
+    } else if (currentPositionRowNum > clickedPositionRowNum) {
+      direction = 'up';
+    }
+  }
+
+  if (direction == 'left') {
     var newPosition = letterList[letterList.indexOf(circle.position[0]) - 1] + circle.position[1];
     if(this.graph.adjList[circle.position].includes(newPosition) && newPosition != otherCircle.position) {
       circle.x -= this.xStep;
@@ -26,7 +46,7 @@ module.exports =  function(e, circle, otherCircle) {
     }
 
 
-  } else if (e.key == Crafty.keys.RIGHT_ARROW) {
+  } else if (direction == 'right') {
     var newPosition = letterList[letterList.indexOf(circle.position[0]) + 1] + circle.position[1];
     if(this.graph.adjList[circle.position].includes(newPosition) && newPosition != otherCircle.position) {
       circle.x += this.xStep;
@@ -46,7 +66,7 @@ module.exports =  function(e, circle, otherCircle) {
     }
 
 
-  } else if (e.key == Crafty.keys.UP_ARROW) {
+  } else if (direction == 'up') {
     var newPosition = circle.position[0] + (parseInt(circle.position[1]) - 1);
     if(this.graph.adjList[circle.position].includes(newPosition) && newPosition != otherCircle.position) {
       circle.y -= this.yStep;
@@ -71,7 +91,7 @@ module.exports =  function(e, circle, otherCircle) {
     }
 
 
-  } else if (e.key == Crafty.keys.DOWN_ARROW) {
+  } else if (direction == 'down') {
     var newPosition = circle.position[0] + (parseInt(circle.position[1]) + 1);
     if(this.graph.adjList[circle.position].includes(newPosition) && newPosition != otherCircle.position) {
       circle.y += this.yStep;

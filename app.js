@@ -176,6 +176,9 @@ window.onload = () => {
     Crafty("Primary").each(function() {
       if (possibleMoves.includes(this.name)) {
         this.color('yellow');
+        this.bind('Click', function() {
+          movePlayer.apply(self, [blueCircle, greenCircle, this.name]);
+        });
       } else {
         this.color('gray');
       }
@@ -184,12 +187,6 @@ window.onload = () => {
     Crafty.bind('KeyDown', (e) => {
       // Prevent scrolling of page when player attempts to move.
       e.originalEvent.preventDefault();
-      // Call function to validate user's move and determine if the game is won.
-      if (greenCircle.turn) {
-        movePlayer.apply(this, [e, greenCircle, blueCircle]);
-      } else {
-        movePlayer.apply(this, [e, blueCircle, greenCircle]);
-      }
     });
 	});
 
