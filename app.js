@@ -130,7 +130,12 @@ window.onload = () => {
             // Helps to identify which player placed the wall.
             // Render wall
             if(wallDimensions) Crafty.e("2D, Canvas, Color, Solid, Mouse, Touch, Draw, Collision").attr(wallDimensions).color(wallColor);
-          });
+          }).bind('MouseOver', function() {
+            this.color('orange');
+          }).bind('MouseOut', function() {
+            // We want to keep clicked wall tiles red.
+            if (this._color != 'rgba(255, 0, 0, 1)') this.color('gray');
+          })
         }
       } 
     }

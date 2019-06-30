@@ -135,6 +135,8 @@ module.exports = function(clickedSquare, squareWidth, greenCircle, blueCircle) {
     delete this.secondName;
     delete this.secondClickX;
     delete this.secondClickY;
+    clickedSquare.color('red');
+    console.log(clickedSquare._color)
   } else {
     // Store attributes of second wall tile clicked.
     this.secondName = clickedSquare.name;
