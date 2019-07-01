@@ -72,7 +72,7 @@ window.onload = () => {
           var nameVar = letterList[letterIndex] + number.toString()
           // This is a list of 'move' tiles that a player can move to for a given tile, it is modified as walls are placed.
           var movesVar = this.graph.adjList[nameVar];
-          Crafty.e('2D, Canvas, Color, Solid, Tile, Collision, Mouse, Touch, Primary').attr({
+          Crafty.e('2D, Canvas, Color, Solid, Tile, Collision, Mouse, Touch, SpriteAnimation, PlayerSprite, Primary').attr({
             x: tileX,
             y: tileY,
             w: squareWidth,
@@ -80,7 +80,7 @@ window.onload = () => {
             z: 0,
             name : nameVar,
             moves : movesVar
-          }).color('grey');
+          }).color('#E6BF83');
         }
       }
     }
@@ -125,7 +125,7 @@ window.onload = () => {
             // Pass the squareWidth as it is used to calculate wall coordinates.
             // Pass in both players' circles because we use them as parameter to the ToggleTurn() function and for executing the DFS validation.
             // onwallClick() will return dimensions for making wall only on the 2nd click and if the wall is valid.
-            var wallColor = greenCircle.turn ? 'DarkGreen' : 'Blue';
+            var wallColor = greenCircle.turn ? '  #800000' : '  #191970';
             var wallDimensions = onWallClick.apply(self, [this, squareWidth, greenCircle, blueCircle]);
             // Helps to identify which player placed the wall.
             // Render wall
@@ -134,7 +134,7 @@ window.onload = () => {
             this.color('orange');
           }).bind('MouseOut', function() {
             // We want to keep clicked wall tiles red.
-            if (this._color != 'rgba(255, 0, 0, 1)') this.color('gray');
+            if (this._color != 'rgba(255, 140, 0, 1)') this.color('gray');
           })
         }
       } 
@@ -152,7 +152,7 @@ window.onload = () => {
       h: squareHeight,
       z: 8,
       radius: squareWidth * .41,
-      color: 'Green',
+      color: '#800000',
       turn : false,
       position : 'E1',
       player : 2
@@ -165,7 +165,7 @@ window.onload = () => {
       h: squareHeight,
       radius: squareWidth * .41,
       z: 8,
-      color: 'blue',
+      color: '  #191970',
       turn : true,
       position : 'E9',
       player: 1
@@ -175,12 +175,12 @@ window.onload = () => {
     var possibleMoves = this.graph.adjList[firstPosition];
     Crafty("Primary").each(function() {
       if (possibleMoves.includes(this.name)) {
-        this.color('yellow');
+        this.color('#ffff66');
         this.bind('Click', function() {
           movePlayer.apply(self, [blueCircle, greenCircle, this.name]);
         });
       } else {
-        this.color('gray');
+        this.color('#E6BF83');
       }
     })
 

@@ -136,7 +136,7 @@ module.exports = function(clickedSquare, squareWidth, greenCircle, blueCircle) {
     delete this.secondClickX;
     delete this.secondClickY;
     this.firstClickedSquare = clickedSquare;
-    this.firstClickedSquare.color('red');
+    this.firstClickedSquare.color('rgb(255, 140, 0)');
   } else {
     this.firstClickedSquare.color('gray');
 

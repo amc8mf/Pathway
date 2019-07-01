@@ -1,5 +1,5 @@
 body {
-	background-color: aliceblue !important;
+	background-color: #e4d5c3 !important;
 }
 
 .title {
@@ -11,14 +11,20 @@ body {
 
 #playerTurn {
 	border-bottom: 1px solid;
+	font-family: 'Happy Monkey', cursive;
+
 }
 
 .blue {
-	color: blue;
+	color: #191970;
+	font-family: 'Happy Monkey', cursive;
+
 }
 
 .green {
-	color: green;
+	color: #800000;
+	font-family: 'Happy Monkey', cursive;
+
 }
 
 .center {
@@ -28,7 +34,13 @@ body {
 .gameboard {
 	width: 65%;
 }
+}
 
 .scoreboard {
 	width: 35%;
 }
+
+.card {
+	background-color: #fffaf8;
+}
+

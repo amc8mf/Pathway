@@ -61,13 +61,13 @@ module.exports = function(circle, otherCircle) {
   })
 
   Crafty("Primary").each(function() {
-    if (tempMoves.includes(this.name) && !self.wallArray.includes(this.name)) {
-      this.color('yellow');
+    if (tempMoves.includes(this.name)) {
+      this.color('#ffff66');
       this.bind('Click', function() {
         movePlayer.apply(self, [otherCircle, circle, this.name]);
       });
     } else {
-      this.color('gray');
+      this.color('#E6BF83');
     }
   });
 }
