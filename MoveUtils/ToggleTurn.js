@@ -10,6 +10,7 @@ module.exports = function(circle, otherCircle) {
   }
   // Used for the scoreboard
   this.toggle = !this.toggle;
+  this.counter = 0;
   // Update boolean variable 'turn' for each circle.
   circle.turn = !circle.turn;
   otherCircle.turn = !otherCircle.turn;

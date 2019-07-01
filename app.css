@@ -3,28 +3,30 @@ body {
 }
 
 .title {
-	color: black;
+	color: #604d36;
 	font-family: 'Amatic SC';
 	font-size: 50px;
 	text-align: center;
+	text-shadow : 1px 1px 1px #000000;
 }
 
 #playerTurn {
 	border-bottom: 1px solid;
 	font-family: 'Happy Monkey', cursive;
-
+	text-shadow : 1px 1px 1px #000000;
+	color : #604d36;
 }
 
 .blue {
 	color: #191970;
 	font-family: 'Happy Monkey', cursive;
-
+	text-shadow : 1px 1px 2px #000000;
 }
 
 .green {
 	color: #800000;
 	font-family: 'Happy Monkey', cursive;
-
+	text-shadow : 1px 1px 2px #000000;
 }
 
 .center {
@@ -32,15 +34,23 @@ body {
 }
 
 .gameboard {
-	width: 65%;
-}
+	width: 66%;
 }
 
 .scoreboard {
-	width: 35%;
+	width: 34%;
 }
 
 .card {
 	background-color: #fffaf8;
+}
+.clock {
+	font-family: 'Happy Monkey', cursive !important;
+	font-size: 30px;
+	margin-top: 20%;
+	margin-bottom: 20%;
+	text-shadow : 1px 1px 2px #000000;
+	box-shadow: 1px 2px;
+	color : #604d36;
 }
 

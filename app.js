@@ -6,7 +6,7 @@ var onWallClick = require('./MoveUtils/OnWallClick');
 
 var makeGraph = require('./GraphUtils/MakeGraph');
 var defineWallName = require('./GraphUtils/DefineWallName');
-
+var moment = require('moment');
 window.onload = () => {
 
   const gWidth = 500;
@@ -189,7 +189,12 @@ window.onload = () => {
       e.originalEvent.preventDefault();
     });
 	});
+  this.counter = 0;
+  function update() {
+    $('.clock').html(moment().minute(0).second(this.counter++).format('mm : ss'));
+  }
 
+  setInterval(update.bind(this), 1000);
 
 
   // Render game.
