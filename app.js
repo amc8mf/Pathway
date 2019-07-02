@@ -80,7 +80,7 @@ window.onload = () => {
             z: 0,
             name : nameVar,
             moves : movesVar
-          }).color('#E6BF83');
+          }).color('#a8865d');
         }
       }
     }

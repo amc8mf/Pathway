@@ -35,7 +35,7 @@ body {
 
 .gameboard {
 	max-width: 575px !important;
-	margin-right: 50px;
+	margin-right: 48px;
 }
 
 .scoreboard {
@@ -52,8 +52,8 @@ body {
 	margin-top: 20%;
 	margin-bottom: 20%;
 	text-shadow : 1px 1px 2px #000000;
-	box-shadow: 1px 2px;
 	color : #604d36;
+	border: 1px solid;
 }
 
 .container {
