@@ -34,16 +34,18 @@ body {
 }
 
 .gameboard {
-	width: 66%;
+	max-width: 575px !important;
+	margin-right: 25px;
 }
 
 .scoreboard {
-	width: 34%;
+	max-width: 300px;
 }
 
 .card {
 	background-color: #fffaf8;
 }
+
 .clock {
 	font-family: 'Happy Monkey', cursive !important;
 	font-size: 30px;
@@ -52,5 +54,9 @@ body {
 	text-shadow : 1px 1px 2px #000000;
 	box-shadow: 1px 2px;
 	color : #604d36;
+}
+
+.container {
+	max-width: 900px !important;
 }
 

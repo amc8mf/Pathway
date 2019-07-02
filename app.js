@@ -193,7 +193,7 @@ window.onload = () => {
   function update() {
     $('.clock').html(moment().minute(0).second(this.counter++).format('mm : ss'));
   }
-
+  update();
   setInterval(update.bind(this), 1000);
 
 
