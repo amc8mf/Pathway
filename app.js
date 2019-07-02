@@ -8,7 +8,7 @@ var makeGraph = require('./GraphUtils/MakeGraph');
 var defineWallName = require('./GraphUtils/DefineWallName');
 var moment = require('moment');
 window.onload = () => {
-
+  $('#myModal').modal('show')
   const gWidth = 500;
   const gHeight = 500;
   const squareWidth = 0.085 * gWidth;

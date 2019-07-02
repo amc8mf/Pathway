@@ -27,12 +27,42 @@
 				<div class="card-body center">
 					<h2 id="playerTurn">Player 1's turn</h2>
 					<div class="clock border"></div>
-					<div><h2 class="blue">Player 1 walls: <span id="player1">10</span></h2></div>
+					<div><h3 class="blue">Player 1 walls: <span id="player1">10</span></h3></div>
 					<br>
-					<div><h2 class="green">Player 2 walls: <span id="player2">10</span></h2></div>
+					<div><h3 class="green">Player 2 walls: <span id="player2">10</span></h3></div>
+          <button type="button" class="btn btn-large btn-primary" data-toggle="modal" data-target="#myModal"">Directions</button>
 				</div>
 			</div>
 		</div>
+	</div>
+	<div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+        <div class="modal-header center">
+          <h1 class="center"><span class="center">Welcome to Pathway!</span></h1>
+        </div>
+	      <div class="modal-body">
+         <h3>Rules for playing:</h3>
+         <ul>
+           <li>Player 1 must move to the top row to win; Player 2 must move to the bottom row to win.</li>
+           <li>Players cannot cut off the player from reaching their winning row.</li>
+           <li>Walls cannot intersect.</li>
+           <li>Players cannot jump over walls.</li>
+           <li>Walls must be 2 tiles long.</li>
+           <li>If 2 players are next to each other, the player whose turn it is may hop over the opponent.</li>
+         </ul>
+         <h3>Directions for playing:</h3>
+         <ul>
+           <li>Click the yellow square to navigate or place a wall instead.</li>
+           <li>To place a wall, you must click both ends of the wall using the small gray tiles.</li>
+           <li>The walls must be 2 tiles long.</li>
+          <ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+	    </div>
+	  </div>
 	</div>
 </body>
 </html>

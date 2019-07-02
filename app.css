@@ -35,7 +35,7 @@ body {
 
 .gameboard {
 	max-width: 575px !important;
-	margin-right: 25px;
+	margin-right: 50px;
 }
 
 .scoreboard {
@@ -58,5 +58,13 @@ body {
 
 .container {
 	max-width: 900px !important;
+}
+
+.btn {
+	margin-top: 40px;
+}
+
+.modal-body, .modal-header {
+	color: #5a4526;
 }
 
