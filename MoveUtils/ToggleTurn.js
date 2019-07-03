@@ -24,7 +24,6 @@ module.exports = function(circle, otherCircle) {
   var self = this;
   possibleMoves.forEach(function(move) {
     if (move == circle.position) {
-      debugger;
       var firstCircleColumnIndex = letterList.indexOf(otherCircle.position[0]);
       var secondCircleColumnIndex = letterList.indexOf(circle.position[0]);
       var firstCircleRowNum = parseInt(otherCircle.position[1]);
@@ -66,6 +65,8 @@ module.exports = function(circle, otherCircle) {
       this.color('#ffff66');
       this.bind('Click', function() {
         movePlayer.apply(self, [otherCircle, circle, this.name]);
+      }).bind('Hover', function() {
+
       });
     } else {
       this.color('#E6BF83');
