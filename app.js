@@ -124,10 +124,9 @@ window.onload = () => {
             // Apply the outer context 'self', pass the clickedSquare as a parameter 'this'.
             // Pass the squareWidth as it is used to calculate wall coordinates.
             // Pass in both players' circles because we use them as parameter to the ToggleTurn() function and for executing the DFS validation.
-            // onwallClick() will return dimensions for making wall only on the 2nd click and if the wall is valid.
-            var wallColor = greenCircle.turn ? '  #800000' : '  #191970';
+            // onwallClick() will return dimensions for making wall only on the 2nd click and if the wall is valid.  
+            var wallColor = greenCircle.turn ? '#800000' : '#191970';
             var wallDimensions = onWallClick.apply(self, [this, squareWidth, greenCircle, blueCircle]);
-            // Helps to identify which player placed the wall.
             // Render wall
             if(wallDimensions) Crafty.e("2D, Canvas, Color, Solid, Mouse, Touch, Draw, Collision").attr(wallDimensions).color(wallColor);
           }).bind('MouseOver', function() {

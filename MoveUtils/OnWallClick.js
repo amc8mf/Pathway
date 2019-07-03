@@ -3,6 +3,11 @@ var defineWallName = require('../GraphUtils/DefineWallName');
 var toggleTurn = require('../MoveUtils/ToggleTurn');
 
 module.exports = function(clickedSquare, squareWidth, greenCircle, blueCircle) {
+  var wallsRemaining = this.toggle ? this.player1Walls : this.player2Walls;
+  if (wallsRemaining == 0) {
+    swal({title: 'Error', position : 'bottom-end', text : "You have already placed the maximum number of walls allowed", timer: 2000, type: 'error', toast: true, showConfirmButton: false});
+    return;
+  }
   var wallWidth;
   var wallHeight;
   const letterList = ['Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
