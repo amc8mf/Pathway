@@ -8,7 +8,6 @@ var makeGraph = require('./GraphUtils/MakeGraph');
 var defineWallName = require('./GraphUtils/DefineWallName');
 var moment = require('moment');
 window.onload = () => {
-  $('#myModal').modal('show')
   const gWidth = 500;
   const gHeight = 500;
   const squareWidth = 0.085 * gWidth;
@@ -128,12 +127,26 @@ window.onload = () => {
             var wallColor = greenCircle.turn ? '#800000' : '#191970';
             var wallDimensions = onWallClick.apply(self, [this, squareWidth, greenCircle, blueCircle]);
             // Render wall
-            if(wallDimensions) Crafty.e("2D, Canvas, Color, Solid, Mouse, Touch, Draw, Collision").attr(wallDimensions).color(wallColor);
+            if(wallDimensions) {
+              Crafty.e("2D, Canvas, Color, Solid, Mouse, Touch, Draw, Collision").attr(wallDimensions).color(wallColor)
+            };
           }).bind('MouseOver', function() {
-            this.color('orange');
+            if (self.firstClickedSquare) {
+              if(self.firstClickedSquare.name != this.name) {
+                this.color('orange');
+              }
+            } else {
+                this.color('orange');
+            }
           }).bind('MouseOut', function() {
             // We want to keep clicked wall tiles red.
-            if (this._color != 'rgba(255, 140, 0, 1)') this.color('gray');
+            if (self.firstClickedSquare) {
+              if(self.firstClickedSquare.name != this.name) {
+                this.color('gray');
+              }
+            } else {
+             this.color('gray'); 
+            } 
           })
         }
       } 

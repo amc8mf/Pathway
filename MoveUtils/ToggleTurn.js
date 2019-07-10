@@ -63,6 +63,7 @@ module.exports = function(circle, otherCircle) {
   Crafty("Primary").each(function() {
     if (tempMoves.includes(this.name)) {
       this.color('#ffff66');
+      // this.css({'border': '1px solid blue'});
       this.bind('Click', function() {
         movePlayer.apply(self, [otherCircle, circle, this.name]);
       }).bind('Hover', function() {
