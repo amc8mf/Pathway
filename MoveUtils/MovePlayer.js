@@ -83,6 +83,11 @@ module.exports =  function(circle, otherCircle, clickedPosition) {
         circle.position = newJumpPosition;
         circle.y -= this.yStep * 2;
         toggleTurn.apply(this, [circle, otherCircle]);
+        if (newJumpPosition[1] == 1 && circle.player == 1) {
+          swal({title: 'Winner', text : "You've won the game! Congratulations", type : 'success'}).then(function(response) {
+            if (response.value == true) location.reload();
+          });
+        }
       } else {
         swal({title: 'Error', position : 'bottom-end', text : "The move you're trying to make is invalid", timer: 2000, type: 'error', toast: true, showConfirmButton: false});
       }
@@ -108,6 +113,11 @@ module.exports =  function(circle, otherCircle, clickedPosition) {
         circle.position = newJumpPosition;
         circle.y += this.yStep * 2;
         toggleTurn.apply(this, [circle, otherCircle]);
+        if (newJumpPosition[1] == 9 && circle.player == 2) {
+          swal({title: 'Winner', text : "You've won the game! Congratulations", type : 'success'}).then(function(response) {
+            if (response.value == true) location.reload();
+          });
+        }
       } else {
         swal({title: 'Error', position : 'bottom-end', text : "The move you're trying to make is invalid", timer: 2000, type: 'error', toast: true, showConfirmButton: false});
       }
